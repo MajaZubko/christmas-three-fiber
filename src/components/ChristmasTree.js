@@ -6,7 +6,11 @@ export function ChristmasTree() {
   const { nodes, materials } = useGLTF("./models/christmas-tree.gltf");
 
   return (
-    <group>
+    <group
+      position={[0, 0.01, 0]}
+      onPointerOver={() => setStarHovered(true)}
+      onPointerOut={() => setStarHovered(false)}
+    >
       <mesh
         geometry={nodes.ChristmasTree.geometry}
         material={materials.Palette}
@@ -32,8 +36,6 @@ export function ChristmasTree() {
         geometry={nodes.star.geometry}
         material={materials.Palette}
         position={[0, 17.03, -0.02]}
-        onPointerOver={() => setStarHovered(true)}
-        onPointerOut={() => setStarHovered(false)}
       >
         <meshStandardMaterial
           {...materials.Palette}
